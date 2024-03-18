@@ -16,7 +16,7 @@ function App() {
 
   const handleSubmit = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/get_company?ticker=${ticker}`);
+      const response = await axios.get(`https://fundamentus-flask.onrender.com/get_company?ticker=${ticker}`); //https://fundamentus-flask.onrender.com
       console.log(response.data);
       setLPA(response.data.LPA);
       setVPA(response.data.VPA);
