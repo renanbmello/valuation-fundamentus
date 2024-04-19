@@ -1,11 +1,20 @@
-import React from "react";
-import WAAC from "./WAAC";
+import React from 'react'
+import { calculateValuationGordon } from '../utils/math'
 
-const finalWaac = WAAC()
+function Gordon({ valorAtual, dividensYield, dividendsGrowth, finalWaac }) {
+  const valuationGordon = calculateValuationGordon(
+    valorAtual,
+    dividensYield,
+    dividendsGrowth,
+    finalWaac,
+  )
+  // console.log(valuationGordon, dividendsGrowth, finalWaac, valorAtual, dividensYield)
 
-function Gordon({dividensPerStock, dividendsGrowth, finalWaac}) {
-
-    const calculateValuationGordon = (dividensPerStock * (1+dividendsGrowth)) / (finalWaac - dividendsGrowth)
+  return (
+    <div>
+      <h2>Valuation pelo método de Gordon: {valuationGordon}</h2>
+    </div>
+  )
 }
 
 export default Gordon
